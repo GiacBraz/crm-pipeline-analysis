@@ -13,3 +13,8 @@ group by sp.account;
 select deal_stage, account, count(opportunity_id) from sales_pipeline
 where account is null
 group by deal_stage, account;
+
+--found 5 agents with no deals in the sales_pipeline. Put the manager and region in the table as well
+select st.sales_agent, manager, regional_office
+from sales_teams st left join sales_pipeline sp on sp.sales_agent=st.sales_agent
+where sp.sales_agent is null;
