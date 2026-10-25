@@ -8,3 +8,5 @@ Found: 5 of 35 agents (2 West, 2 East, 1 Central; five different managers) have 
 
 Treatment: no rows removed. Agent level analyses use the 30 active agents. Team averages are computed on active agents, and the choice is declared.
 
+Uniqueness check on the key of each table (opportunity\_id, account, product, sales\_agent): no duplicates found. Not checked: the same deal repeated under different IDs
+

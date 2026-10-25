@@ -18,3 +18,10 @@ group by deal_stage, account;
 select st.sales_agent, manager, regional_office
 from sales_teams st left join sales_pipeline sp on sp.sales_agent=st.sales_agent
 where sp.sales_agent is null;
+
+-- Check 4: uniqueness of keys. Expected: 0 rows (no key appears more than once).
+-- sales_pipeline: opportunity_id; accounts: account; products: product; sales_teams: sales_agent. No duplicates
+select count(distinct (opportunity_id)) as opport_id_distinti, count(*) as righe from sales_pipeline;
+select count(distinct (product)) as product_distinti, count(*) as righe from products;
+select count(distinct (account)) as account_distinti, count(*) as righe from accounts;
+select count(distinct (sales_agent)) as agents_distinti, count(*) as righe from sales_teams;
