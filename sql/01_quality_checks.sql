@@ -25,3 +25,11 @@ select count(distinct (opportunity_id)) as opport_id_distinti, count(*) as righe
 select count(distinct (product)) as product_distinti, count(*) as righe from products;
 select count(distinct (account)) as account_distinti, count(*) as righe from accounts;
 select count(distinct (sales_agent)) as agents_distinti, count(*) as righe from sales_teams;
+
+-- Check 5: impossible dates. Closed deals (Won, Lost) with close_date <= engage_date. Expected: 0 rows.
+select opportunity_id, close_date, engage_date from sales_pipeline
+where close_date <= engage_date and deal_stage in ('Won', 'Lost');
+-- Also reports min/max cycle length in days (observed: 1-138).
+select min(close_date-engage_date), max(close_date-engage_date) from sales_pipeline
+where deal_stage in('Won', 'Lost');
+
