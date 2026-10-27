@@ -12,3 +12,7 @@ Uniqueness check on the key of each table (opportunity\_id, account, product, sa
 
 Impossible dates: close\_date earlier than or equal to engage\_date on closed deals (Won, Lost). Found: 0 rows. Cycle length ranges 1-138 days. No action needed.
 
+
+
+\- Open deals by agent (Q4): only 27 of the 30 active agents have at least one Engaging deal. The other 3 do not appear in the stalled-deals tables.
+
